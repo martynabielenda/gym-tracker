@@ -1,20 +1,112 @@
 {% extends "core/base.html" %}
 
-{% block title %}Strona główna | Gym Tracker{% endblock %}
+{% block title %}Gym Tracker – Twój trening, Twoje postępy{% endblock %}
 
 {% block content %}
-<div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
-    <div class="container-fluid py-4">
-        <h1 class="display-5 fw-bold">Witaj w Gym Tracker!</h1>
 
-        <p class="col-md-8 fs-5 text-secondary">
-            Monitoruj swoje treningi, zapisuj ćwiczenia i obserwuj
-            swoje postępy w jednym miejscu.
-        </p>
+<!-- Sekcja powitalna -->
+<div class="bg-white rounded-4 shadow-sm p-5 mb-5">
+    <div class="row align-items-center">
+        <div class="col-lg-8">
 
-        <a href="/admin/" class="btn btn-dark btn-lg">
-            Przejdź do panelu
-        </a>
+            <h1 class="display-4 fw-bold mb-3">
+                Twój trening. Twoje postępy. Twój cel.
+            </h1>
+
+            <p class="fs-5 text-secondary mb-4">
+                Gym Tracker to miejsce, w którym możesz planować treningi,
+                zapisywać ćwiczenia, kontrolować obciążenia i obserwować
+                swoje postępy.
+            </p>
+
+
+{% if user.is_authenticated %}
+
+    <p class="text-secondary">
+        Witaj ponownie, {{ user.username }}!
+        Przejdź do swojej aplikacji i monitoruj postępy.
+    </p>
+
+    <a href="{% url 'dashboard' %}" class="btn btn-dark btn-lg">
+        Przejdź do aplikacji
+    </a>
+
+{% else %}
+
+    <p class="text-secondary">
+        Zaloguj się, aby rozpocząć monitorowanie swoich treningów,
+        lub załóż konto i zacznij już dziś!
+    </p>
+
+    <a href="{% url 'login' %}" class="btn btn-dark btn-lg me-2">
+        Zaloguj się
+    </a>
+
+    <a href="{% url 'register' %}" class="btn btn-outline-dark btn-lg">
+        Załóż konto
+    </a>
+
+{% endif %}
+
+
+        </div>
     </div>
 </div>
+
+<!-- Sekcja funkcjonalności -->
+<div class="text-center mb-4">
+    <h2 class="fw-bold">Co oferuje Gym Tracker?</h2>
+    <p class="text-secondary">
+        Wszystko, czego potrzebujesz do monitorowania aktywności treningowej.
+    </p>
+</div>
+
+<div class="row g-4">
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="fw-bold">Dziennik treningów</h5>
+                <p class="text-secondary mb-0">
+                    Zapisuj treningi, ich daty, czas trwania i notatki.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="fw-bold">Baza ćwiczeń</h5>
+                <p class="text-secondary mb-0">
+                    Przeglądaj ćwiczenia i organizuj je według kategorii.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="fw-bold">Monitorowanie postępów</h5>
+                <p class="text-secondary mb-0">
+                    Śledź ciężary, liczbę powtórzeń i wyniki treningowe.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="fw-bold">Indywidualne konto</h5>
+                <p class="text-secondary mb-0">
+                    Przechowuj swoją historię treningową na własnym koncie.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 {% endblock %}

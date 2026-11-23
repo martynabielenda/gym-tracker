@@ -59,10 +59,13 @@
                     </a>
                 </li>
             {% endif %}
-
-            <li class="nav-item">
-                <a class="nav-link" href="/admin/">Panel administratora</a>
-            </li>
+            {% if user.is_staff %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/">
+                        Panel administratora
+                    </a>
+                </li>
+            {% endif %}
         </ul>
         </div>
       </div>
