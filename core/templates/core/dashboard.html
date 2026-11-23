@@ -1,0 +1,113 @@
+{% extends "core/base.html" %}
+
+{% block title %}Mój panel | Gym Tracker{% endblock %}
+
+{% block content %}
+
+<!-- Nagłówek dashboardu -->
+<div class="mb-4">
+    <h1 class="fw-bold">Witaj, {{ user.username }}!</h1>
+    <a href="{% url 'add_workout' %}" class="btn btn-primary mb-4">
+    <i class="bi bi-plus-circle"></i> Dodaj trening
+    </a>
+    <p class="text-secondary">
+        Zarządzaj swoimi treningami i monitoruj swoje postępy.
+    </p>
+</div>
+
+<!-- Karty statystyk -->
+<div class="row g-4 mb-4">
+
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+                <h6 class="text-secondary">Liczba treningów</h6>
+                <h2 class="fw-bold mb-0">0</h2>
+                <small class="text-secondary">
+                    Wszystkie zapisane treningi
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+                <h6 class="text-secondary">Łączny czas treningów</h6>
+                <h2 class="fw-bold mb-0">0 h</h2>
+                <small class="text-secondary">
+                    Czas poświęcony na aktywność
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+                <h6 class="text-secondary">Ostatni trening</h6>
+                <h2 class="fw-bold mb-0">—</h2>
+                <small class="text-secondary">
+                    Data ostatniego treningu
+                </small>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Główne funkcjonalności -->
+<h4 class="fw-bold mb-3">Moja aktywność</h4>
+
+<div class="row g-4">
+
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+                <h5 class="fw-bold">Moje treningi</h5>
+                <p class="text-secondary">
+                    Przeglądaj historię swoich treningów,
+                    sprawdzaj szczegóły i zarządzaj zapisanymi sesjami.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+                <h5 class="fw-bold">Baza ćwiczeń</h5>
+                <p class="text-secondary">
+                    Przeglądaj dostępne ćwiczenia i ich kategorie.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+                <h5 class="fw-bold">Dodaj trening</h5>
+                <p class="text-secondary">
+                    Zapisuj nowe treningi, czas ich trwania
+                    i wykonane ćwiczenia.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body p-4">
+                <h5 class="fw-bold">Moje postępy</h5>
+                <p class="text-secondary">
+                    Analizuj swoje wyniki i obserwuj zmiany
+                    w osiąganych rezultatach.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
